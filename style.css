@@ -44,6 +44,7 @@ header {
 .logo {
   font-weight: 700;
   color: var(--primary);
+  font-size: 32px;
 }
 
 nav a {
@@ -202,12 +203,60 @@ a:hover {
   }
 }
 
-/* Responsive */
+/* ✅ FINAL Mobile Optimization */
 @media (max-width: 768px) {
+  header {
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 0.5rem;
+  }
+
+  nav a {
+    font-size: 13px;
+    padding: 3px 6px;
+    margin: 0;
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+
   .cards {
     flex-direction: column;
+    align-items: center;
   }
-  .hero h2 {
-    font-size: 2rem;
+
+  .card {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  footer {
+    font-size: 13px;
+    padding: 10px;
   }
 }
