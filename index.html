@@ -51,9 +51,14 @@
     </div>
   </section>
 
-  <!-- Pricing Section -->
   <section id="pricing" style="text-align: center; padding: 40px;">
   <h2>Our Plans</h2>
+
+  <!-- Form -->
+  <div style="margin-bottom: 30px;">
+    <input type="text" id="customerName" placeholder="Your Full Name" required style="padding: 10px; width: 250px; margin: 5px;">
+    <input type="email" id="customerEmail" placeholder="Your Email Address" required style="padding: 10px; width: 250px; margin: 5px;">
+  </div>
 
   <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
 
@@ -81,6 +86,7 @@
 </section>
 
 
+
   <!-- Contact Section -->
   <section id="contact" class="section">
     <div class="container">
@@ -99,16 +105,32 @@
   </footer>
   <!-- Paystack Script -->
 <script src="https://js.paystack.co/v1/inline.js"></script>
-  <script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
   function pay200() {
+    const name = document.getElementById("customerName").value;
+    const email = document.getElementById("customerEmail").value;
+
+    if (!name || !email) {
+      alert("Please enter your name and email.");
+      return;
+    }
+
     PaystackPop.setup({
       key: 'pk_live_b474717ea7f53dc4cc3e2be8c9a1824852dd5db0',
-      email: 'customer@email.com', // You can change this or collect from input
-      amount: 20000, // ₵200 = 20000 pesewas
+      email: email,
+      amount: 20000,
       currency: 'GHS',
+      metadata: {
+        custom_fields: [
+          {
+            display_name: "Full Name",
+            variable_name: "full_name",
+            value: name
+          }
+        ]
+      },
       callback: function(response) {
-        alert('✅ Payment complete! Reference: ' + response.reference);
+        alert('✅ Payment complete! Ref: ' + response.reference);
       },
       onClose: function() {
         alert('❌ Payment cancelled');
@@ -117,19 +139,38 @@
   }
 
   function pay500() {
+    const name = document.getElementById("customerName").value;
+    const email = document.getElementById("customerEmail").value;
+
+    if (!name || !email) {
+      alert("Please enter your name and email.");
+      return;
+    }
+
     PaystackPop.setup({
       key: 'pk_live_b474717ea7f53dc4cc3e2be8c9a1824852dd5db0',
-      email: 'customer@email.com',
-      amount: 50000, // ₵500 = 50000 pesewas
+      email: email,
+      amount: 50000,
       currency: 'GHS',
+      metadata: {
+        custom_fields: [
+          {
+            display_name: "Full Name",
+            variable_name: "full_name",
+            value: name
+          }
+        ]
+      },
       callback: function(response) {
-        alert('✅ Payment complete! Reference: ' + response.reference);
+        alert('✅ Payment complete! Ref: ' + response.reference);
       },
       onClose: function() {
         alert('❌ Payment cancelled');
       }
     }).openIframe();
   }
+</script>
+
 </script>
 
 </body>
