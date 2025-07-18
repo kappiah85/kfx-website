@@ -2,176 +2,210 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <title>KFX Forex Signals & Mentorship</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KFX Signals</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  
-  <!-- Force scroll to top on refresh -->
-  <script>
-    window.addEventListener("beforeunload", function () {
-      window.scrollTo(0, 0);
-    });
-  </script>
+  <link rel="icon" type="image/png" href="favicon.ico.png" />
+  <style>
+    /* Base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      background: #000;
+      color: #fff;
+      padding: 10px 20px;
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      margin-right: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    .pricing {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .pricing .plan {
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .pricing .plan h3 {
+      margin-bottom: 10px;
+    }
+
+    .pricing .plan button {
+      padding: 10px 15px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 14px;
+    }
+
+    /* Mobile-first adjustments */
+    @media (max-width: 768px) {
+      header {
+        padding: 10px 15px;
+      }
+
+      header h1 {
+        font-size: 18px;
+        line-height: 1.2;
+        margin: 0;
+      }
+
+      nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        margin-top: 5px;
+      }
+
+      nav a {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      .pricing {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .pricing .plan {
+        width: 90%;
+        margin-bottom: 20px;
+      }
+
+      footer {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header class="main-header">
-    <div class="container nav-container">
-      <h1 class="logo">KFX Signals</h1>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+  <!-- Header -->
+  <header>
+    <h1>KFX Signals</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h2>Level Up Your Forex Journey</h2>
-      <p>Daily signals. Winning trades. Premium mentorship that pays off.</p>
-      <a href="#pricing" class="btn btn-accent">Join Now</a>
-    </div>
-  </section>
-
   <!-- About Section -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">About KFX</h2>
-      <p class="section-subtitle">Trusted by traders for accurate signals and result-driven mentorship.</p>
-      <div class="cards">
-        <div class="card fade-in">
-          <h3>Forex Signals</h3>
-          <p>Get real-time, high-probability trade alerts delivered to your phone and email. Stay ahead of the market with precision analysis.</p>
-        </div>
-        <div class="card fade-in delay">
-          <h3>Mentorship</h3>
-          <p>Unlock your full trading potential. Our mentorship covers technical analysis, strategy building, and trading psychology.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing Section -->
-  <section id="pricing" style="text-align: center; padding: 40px;">
-    <h2>Our Plans</h2>
-
-    <!-- Form -->
-    <div style="margin-bottom: 30px;">
-      <input type="text" id="customerName" placeholder="Your Full Name" required style="padding: 10px; width: 250px; margin: 5px;">
-      <input type="email" id="customerEmail" placeholder="Your Email Address" required style="padding: 10px; width: 250px; margin: 5px;">
-    </div>
-
-    <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-      <!-- Plan 1 -->
-      <div style="border: 1px solid #ccc; padding: 20px; border-radius: 10px; width: 250px;">
-        <h3>Standard Plan</h3>
-        <p>Access to mentorship and signal group</p>
-        <h4>₵200 (~$15.38)</h4>
-        <button onclick="pay200()" style="padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 5px;">
-          Pay ₵200
-        </button>
-      </div>
-
-      <!-- Plan 2 -->
-      <div style="border: 1px solid #ccc; padding: 20px; border-radius: 10px; width: 250px;">
-        <h3>Premium Plan</h3>
-        <p>Everything in Standard + Private Coaching</p>
-        <h4>₵500 (~$38.46)</h4>
-        <button onclick="pay500()" style="padding: 10px 20px; background-color: darkblue; color: white; border: none; border-radius: 5px;">
-          Pay ₵500
-        </button>
-      </div>
-    </div>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We provide accurate and timely forex signals to help traders succeed in the market.</p>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <p>Got questions or ready to get started?</p>
-      <p><strong>WhatsApp:</strong> <a href="https://wa.me/233557711092" target="_blank">+233 50 872 8316</a></p>
-      <p><strong>Email:</strong> <a href="mailto:fxkofi2@gmail.com">fxkofi2@gmail.com</a></p>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email us at kappiah8415@gmail.com or call 0557711092</p>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing">
+    <div class="plan">
+      <h3>Standard Plan</h3>
+      <p>GH₵200 / $17</p>
+      <button onclick="payWithPaystack200()">Subscribe</button>
+    </div>
+    <div class="plan">
+      <h3>Premium Plan</h3>
+      <p>GH₵500 / $42</p>
+      <button onclick="payWithPaystack500()">Subscribe</button>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <div class="container">
-      <p>© 2025 KFX Signals. Built with precision by <strong><i>NVM</i></strong>.</p>
-    </div>
+    <p>© 2025 KFX Signals. Built with precision by <strong>Kofi Appiah</strong>.</p>
   </footer>
 
-  <!-- Paystack Script -->
+  <!-- Paystack Scripts -->
   <script src="https://js.paystack.co/v1/inline.js"></script>
   <script>
-    function pay200() {
-      const name = document.getElementById("customerName").value;
-      const email = document.getElementById("customerEmail").value;
-
-      if (!name || !email) {
-        alert("Please enter your name and email.");
-        return;
-      }
-
-      PaystackPop.setup({
+    function payWithPaystack200() {
+      var handler = PaystackPop.setup({
         key: 'pk_live_b474717ea7f53dc4cc3e2be8c9a1824852dd5db0',
-        email: email,
+        email: 'kappiah8415@gmail.com',
         amount: 20000,
         currency: 'GHS',
-        metadata: {
-          custom_fields: [
-            {
-              display_name: "Full Name",
-              variable_name: "full_name",
-              value: name
-            }
-          ]
-        },
         callback: function(response) {
-          alert('✅ Payment complete! Ref: ' + response.reference);
+          alert('Payment complete! Reference: ' + response.reference);
         },
         onClose: function() {
-          alert('❌ Payment cancelled');
+          alert('Transaction was not completed, window closed.');
         }
-      }).openIframe();
+      });
+      handler.openIframe();
     }
 
-    function pay500() {
-      const name = document.getElementById("customerName").value;
-      const email = document.getElementById("customerEmail").value;
-
-      if (!name || !email) {
-        alert("Please enter your name and email.");
-        return;
-      }
-
-      PaystackPop.setup({
+    function payWithPaystack500() {
+      var handler = PaystackPop.setup({
         key: 'pk_live_b474717ea7f53dc4cc3e2be8c9a1824852dd5db0',
-        email: email,
+        email: 'kappiah8415@gmail.com',
         amount: 50000,
         currency: 'GHS',
-        metadata: {
-          custom_fields: [
-            {
-              display_name: "Full Name",
-              variable_name: "full_name",
-              value: name
-            }
-          ]
-        },
         callback: function(response) {
-          alert('✅ Payment complete! Ref: ' + response.reference);
+          alert('Payment complete! Reference: ' + response.reference);
         },
         onClose: function() {
-          alert('❌ Payment cancelled');
+          alert('Transaction was not completed, window closed.');
         }
-      }).openIframe();
+      });
+      handler.openIframe();
     }
+  </script>
+
+  <!-- Scroll to Top on Refresh -->
+  <script>
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
   </script>
 
 </body>
