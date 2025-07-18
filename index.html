@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
+  
   <!-- Navigation -->
   <header class="main-header">
     <div class="container nav-container">
@@ -51,33 +52,34 @@
   </section>
 
   <!-- Pricing Section -->
-  <section id="pricing" class="section dark-bg">
-    <div class="container">
-      <h2 class="section-title white">Pricing</h2>
-      <div class="cards">
-        <div class="card pricing-card fade-in">
-          <h3>Signal Plan</h3>
-          <p class="price-tag">GH₵200 / $20 <span class="note">per month</span></p>
-          <ul>
-            <li>Daily Forex signals</li>
-            <li>Entry, SL & TP explained</li>
-            <li>Private community access</li>
-          </ul>
-          <a href="#contact" class="btn floating-btn">Subscribe</a>
-        </div>
-        <div class="card pricing-card fade-in delay">
-          <h3>Mentorship Plan</h3>
-          <p class="price-tag">GH₵500 / $50 <span class="note">one-time</span></p>
-          <ul>
-            <li>1-on-1 training sessions</li>
-            <li>Downloadable resources</li>
-            <li>Free signals included</li>
-          </ul>
-          <a href="#contact" class="btn floating-btn">Enroll Now</a>
-        </div>
-      </div>
+  <section id="pricing" style="text-align: center; padding: 40px;">
+  <h2>Our Plans</h2>
+
+  <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+
+    <!-- Plan 1 -->
+    <div style="border: 1px solid #ccc; padding: 20px; border-radius: 10px; width: 250px;">
+      <h3>Standard Plan</h3>
+      <p>Access to mentorship and signal group</p>
+      <h4>₵200 (~$15.38)</h4>
+      <button onclick="pay200()" style="padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 5px;">
+        Pay ₵200
+      </button>
     </div>
-  </section>
+
+    <!-- Plan 2 -->
+    <div style="border: 1px solid #ccc; padding: 20px; border-radius: 10px; width: 250px;">
+      <h3>Premium Plan</h3>
+      <p>Everything in Standard + Private Coaching</p>
+      <h4>₵500 (~$38.46)</h4>
+      <button onclick="pay500()" style="padding: 10px 20px; background-color: darkblue; color: white; border: none; border-radius: 5px;">
+        Pay ₵500
+      </button>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- Contact Section -->
   <section id="contact" class="section">
@@ -95,5 +97,40 @@
       <p>© 2025 KFX Signals. Built with precision by <strong><I>NVM</I></strong>.</p>
     </div>
   </footer>
+  <!-- Paystack Script -->
+<script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+  function pay200() {
+    PaystackPop.setup({
+      key: 'pk_live_b474717ea7f53dc4cc3e2be8c9a1824852dd5db0',
+      email: 'customer@email.com', // You can change this or collect from input
+      amount: 20000, // ₵200 = 20000 pesewas
+      currency: 'GHS',
+      callback: function(response) {
+        alert('✅ Payment complete! Reference: ' + response.reference);
+      },
+      onClose: function() {
+        alert('❌ Payment cancelled');
+      }
+    }).openIframe();
+  }
+
+  function pay500() {
+    PaystackPop.setup({
+      key: 'pk_live_b474717ea7f53dc4cc3e2be8c9a1824852dd5db0',
+      email: 'customer@email.com',
+      amount: 50000, // ₵500 = 50000 pesewas
+      currency: 'GHS',
+      callback: function(response) {
+        alert('✅ Payment complete! Reference: ' + response.reference);
+      },
+      onClose: function() {
+        alert('❌ Payment cancelled');
+      }
+    }).openIframe();
+  }
+</script>
+
 </body>
 </html>
