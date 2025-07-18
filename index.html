@@ -7,6 +7,13 @@
   <title>KFX Forex Signals & Mentorship</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Force scroll to top on refresh -->
+  <script>
+    window.addEventListener("beforeunload", function () {
+      window.scrollTo(0, 0);
+    });
+  </script>
 </head>
 <body>
 
@@ -16,7 +23,7 @@
       <h1 class="logo">KFX Signals</h1>
       <nav>
         <a href="#about">About</a>
-        <a href="javascript:void(0);" onclick="scrollToPricing()">Pricing</a>
+        <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -27,7 +34,7 @@
     <div class="container">
       <h2>Level Up Your Forex Journey</h2>
       <p>Daily signals. Winning trades. Premium mentorship that pays off.</p>
-      <a class="btn btn-accent" onclick="scrollToPricing()">Join Now</a>
+      <a href="#pricing" class="btn btn-accent">Join Now</a>
     </div>
   </section>
 
@@ -60,7 +67,6 @@
     </div>
 
     <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-
       <!-- Plan 1 -->
       <div style="border: 1px solid #ccc; padding: 20px; border-radius: 10px; width: 250px;">
         <h3>Standard Plan</h3>
@@ -80,7 +86,6 @@
           Pay ₵500
         </button>
       </div>
-
     </div>
   </section>
 
@@ -101,16 +106,9 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Paystack Script -->
   <script src="https://js.paystack.co/v1/inline.js"></script>
   <script>
-    function scrollToPricing() {
-      const pricing = document.getElementById('pricing');
-      pricing.scrollIntoView({ behavior: 'smooth' });
-      // Remove hash so refresh doesn't go to section
-      history.replaceState(null, null, ' ');
-    }
-
     function pay200() {
       const name = document.getElementById("customerName").value;
       const email = document.getElementById("customerEmail").value;
@@ -175,5 +173,6 @@
       }).openIframe();
     }
   </script>
+
 </body>
 </html>
